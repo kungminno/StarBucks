@@ -1,0 +1,227 @@
+/* COMMON */
+body {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: "Nanum Gothic", sans-serif;
+  height: 3000px;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.inner{
+  width: 1100px;
+  margin: 0 auto; /* 상하는 아니고 좌우만 중앙 배치*/
+  position: relative;
+}
+/* ################################################# HEADER ################################################# */
+header {
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+  position: fixed; /*일반적으로 가로 값을 최대한으로 쓰려고 하지만 fixed,absolute는 최소한으로 쓰려고함*/
+  top: 0;
+  width: 100%;
+}
+
+header > .inner {
+  height: 120px;
+}
+
+header .logo {
+  height: 75px;
+  position: absolute;   /* 이렇게*/
+  top: 0;               /* 설정되어*/ /* 부모 기준  top0 bottom0이어야 남는 공간 margin으로 띄움*/
+  bottom: 0;  
+  left: 0;          /*있어야 */
+  margin: auto 0;       /*가운데에 표시*/
+}
+
+header .sub-menu{
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+header .sub-menu ul.menu{  /* header 안에 sub-menu(clss) 안에 ul인 menu*/
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header .sub-menu ul.menu li{  /* header 안에 sub-menu(clss) 안에 ul인 menu*/
+  position: relative;
+}
+
+header .sub-menu ul.menu li::before{
+  content: "";
+  /* display: block; position :absolute 하면 자동으로 block이 됨 */
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+header .sub-menu ul.menu li:first-child::before{
+  display: none;
+}
+
+
+header .sub-menu ul.menu li a{  /* header 안에 sub-menu(clss) 안에 ul인 menu*/
+  /* background-color: pink; */
+  padding: 11px 16px;
+  font-size: 12px;
+  display: block;
+  color: #656565;
+}
+
+header .sub-menu ul.menu li a:hover{  /* header 안에 sub-menu(clss) 안에 ul인 menu*/
+  color: #000;
+}
+
+header .sub-menu .search{
+  /* background-color: red; */
+  height: 34px;
+  position: relative;
+}
+
+header .sub-menu .search input{
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* 이렇게해야 모든 패딩까지 포함한 내용이 36 34*/
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  color: #777;
+  font-size: 12px;
+  transition: width .4s; /*포커스 되엇디 풀리는 변환이 0.4초동안 변화함*/
+}
+
+header .sub-menu .search input:focus{
+  width: 190px;
+  border-color: #669900;
+}
+header .sub-menu .search .material-icons{
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto 0;
+  transition: .4s;
+}
+
+header .sub-menu .search.focused .material-icons{ /* search 부분에 포커스를 해서 focused class가 추가되었을 때 material-icons에 한함*/
+  opacity: 0;
+}
+
+header .main-menu{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1; /*화면 우측에 뱃지 메누도 다 잘 가릴수잇게 하도록*/
+}
+
+header .main-menu .item{
+  
+}
+
+header .main-menu .item .item__name{
+  padding: 10px 20px 34px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+header .main-menu .item:hover .item__name{
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents{
+  display: block;
+  
+}
+
+header .main-menu .item .item__contents .contents__menu{
+  background-color: #2c2a29;
+  /* height: 200px; */
+  
+}
+
+header .main-menu .item .item__contents .contents__menu > ul{
+  display: flex;
+  padding: 20px 0;
+}
+
+
+header .main-menu .item .item__contents .contents__menu > ul > li{
+  width: 220px;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li h4{
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li{
+  padding: 5px 0 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover{
+  color: #669900;
+}
+
+header .main-menu .item .item__contents .contents__texture{
+  padding: 26px 0;
+  font-size: 12px;
+  background-image: url('../images/main_menu_pattern.jpg');
+}
+
+header .main-menu .item .item__contents .contents__texture h4{
+  color: #999;
+  font-weight: 700;
+}
+
+header .main-menu .item .item__contents .contents__texture p{
+  color: #669900;
+  margin: 4px 0 14px;
+}
+
+header .badges{
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+
+header .badges .badge{
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px rgb(0,0,0,.15);
+  cursor: pointer;
+}
